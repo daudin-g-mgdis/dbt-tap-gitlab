@@ -1,11 +1,12 @@
 name: 'tap_gitlab'
 version: '0.0.3'
 config-version: 2
+profile: default
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 vars:
   tap_gitlab:
-    schema:                  # the schema where the raw gitlab tables are located
-    ultimate_license:        # whether tables (e.g. epics) only available on Ultimate Accounts are available
+    schema:                  tap-gitlab
+    ultimate_license:        false
 
 model-paths: ["models"]      # paths with source code to compile
 analysis-paths: ["analysis"] # path with analysis files which are compiled, but not run
