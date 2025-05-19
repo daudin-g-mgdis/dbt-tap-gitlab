@@ -5,7 +5,7 @@ profile: default
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 vars:
   tap_gitlab:
-    schema:                  tap-gitlab
+    schema:                  tap_gitlab
     ultimate_license:        false
 
 model-paths: ["models"]      # paths with source code to compile
