@@ -11,6 +11,8 @@ parsed_json as (
         project_id,
         commit_id,
         filename,
+        filepath,
+        fileurl,
         content::json as content_json
     from source
 
@@ -23,6 +25,8 @@ dependencies_union as (
         project_id,
         commit_id,
         filename,
+        filepath,
+        fileurl,
         'dependency' as type,
         key as dependency_name,
         value as version_raw
@@ -36,6 +40,8 @@ dependencies_union as (
         project_id,
         commit_id,
         filename,
+        filepath,
+        fileurl,
         'devDependency' as type,
         key as dependency_name,
         value as version_raw
@@ -60,7 +66,10 @@ version_split as (
         split_part(regexp_replace(version_raw, '^[^\d]*', ''), '.', 3) as version_patch,
         project_id,
         commit_id,
-        filename
+        filename,
+        filepath,
+        fileurl,
+        version_raw
     from dependencies_union
 
 )
