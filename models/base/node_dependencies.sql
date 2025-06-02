@@ -13,6 +13,7 @@ parsed_json as (
         filename,
         filepath,
         fileurl,
+        ref,
         content::json as content_json
     from source
 
@@ -27,6 +28,7 @@ dependencies_union as (
         filename,
         filepath,
         fileurl,
+        ref,
         'dependency' as type,
         key as dependency_name,
         value as version_raw
@@ -42,6 +44,7 @@ dependencies_union as (
         filename,
         filepath,
         fileurl,
+        ref,
         'devDependency' as type,
         key as dependency_name,
         value as version_raw
@@ -69,6 +72,7 @@ version_split as (
         filename,
         filepath,
         fileurl,
+        ref,
         version_raw
     from dependencies_union
 
