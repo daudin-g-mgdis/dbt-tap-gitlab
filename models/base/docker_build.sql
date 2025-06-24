@@ -14,6 +14,7 @@ docker_lines as (
         filepath,
         fileurl,
         ref,
+        date,
         unnest(string_to_array(content, E'\n')) as line
     from source
 
@@ -36,6 +37,7 @@ parsed_from as (
         filepath,
         fileurl,
         ref,
+        date,
         line,
         regexp_replace(line, '^from\s+', '', 'i') as from_clause
     from from_lines
@@ -61,6 +63,7 @@ select
     filepath,
     fileurl,
     ref,
+    date,
     line as docker_from_line,
     image_name,
     version_major
